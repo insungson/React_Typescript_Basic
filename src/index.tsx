@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {ThemeProvider} from 'styled-components';
+import theme from './theme';
 
+// 참고로 styled components 는 type이 붙는데.. 이것도 설치해야 타입스크립트에서 사용이 가능하다
+// 아래와 같이 styled component의 themecolor 속성과 디폴트 값도 정하면 하부 컴포넌트에선 쉽게 사용이 가능하다..
+// https://styled-components.com/docs/api#typescript  설정법은 여기 나와있다.
 ReactDOM.render(
-  <React.StrictMode>
+  <ThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
